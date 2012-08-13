@@ -39,5 +39,7 @@ function gbsh_covert_code_blocks( $text ) {
 
 function gbsh_convert_code( $code, $language) {
     $code = stripslashes( trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $code) ) );
+    // covert csharp into cs
+    if ($language == 'csharp') $language = 'cs';
     return '<pre><code class="'. $language . '">' . $code . '</code></pre>';
 }
