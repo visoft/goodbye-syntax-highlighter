@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: goodbye-syntax-highlighter
-Plugin URI: http://www.visoftinc.com
+Plugin URI: https://github.com/visoft/goodbye-syntax-highlighter
 Description: Say goodbye to syntaxhighlighter and hello to highlight.js
-Version: 0.1.0
+Version: 0.1.1
 Author: Damien White (Visoft, Inc.)
 Author URI: http://www.visoftinc.com
 License: GPLv2 or later
@@ -41,5 +41,5 @@ function gbsh_convert_code( $code, $language) {
     $code = stripslashes( trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $code) ) );
     // covert csharp into cs
     if ($language == 'csharp') $language = 'cs';
-    return '<pre><code class="'. $language . '">' . $code . '</code></pre>';
+    return '<pre><code class="language-'. $language . '">' . $code . '</code></pre>';
 }
