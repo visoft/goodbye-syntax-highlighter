@@ -10,7 +10,7 @@ License: GPLv2 or later
 */
 
 /*
-  Copyright 2012 Visoft, Inc. <info@visoftinc.com>
+  Copyright 2012-2013 Visoft, Inc. <info@visoftinc.com>
 
   This file is part of goodbye-syntax-highlighter
 
@@ -19,13 +19,13 @@ License: GPLv2 or later
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
 
-    Collapsing Archives is distributed in the hope that it will be useful,
+    Goodbye Syntax Highlighter is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Collapsing Archives; if not, write to the Free Software
+    along with Goodbye Syntax Highlighter; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
