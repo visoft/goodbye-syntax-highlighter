@@ -3,7 +3,7 @@
 Plugin Name: goodbye-syntax-highlighter
 Plugin URI: https://github.com/visoft/goodbye-syntax-highlighter
 Description: Say goodbye to syntaxhighlighter and hello to highlight.js
-Version: 0.1.1
+Version: 0.1.2
 Author: Damien White (Visoft, Inc.)
 Author URI: http://www.visoftinc.com
 License: GPLv2 or later
@@ -34,7 +34,8 @@ add_filter('the_content_rss',   'gbsh_covert_code_blocks');
 add_filter('get_the_excerpt',   'gbsh_covert_code_blocks');
 
 function gbsh_covert_code_blocks( $text ) {
-    return preg_replace( '|<pre class="[\"]*brush:\s?([^;]*);[^>]*>([^<]*)</pre>|se', 'gbsh_convert_code(\'$2\',\'$1\');', $text);
+    $text = preg_replace( '|<pre class="[\"]*brush:\s?([^;]*);[^>]*>(.*)</pre>|se', 'gbsh_convert_code(\'$2\',\'$1\');', $text);
+    return preg_replace( '|<pre lang="([^"]*)"[^>]*>(.*)</pre>|se', 'gbsh_convert_code(\'$2\',\'$1\');', $text);
 }
 
 function gbsh_convert_code( $code, $language) {

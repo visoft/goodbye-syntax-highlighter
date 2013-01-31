@@ -1,14 +1,14 @@
 === Goodbye Syntax Highlighter ===
 Contributors: dwhitevisoft
 Donate link: http://www.visoftinc.com/
-Tags: highlight.js, syntax, code, pre, highlight, syntaxhighlighter
+Tags: highlight.js, syntax, code, pre, highlight, syntaxhighlighter, geshi
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Say goodbye to plugins like SyntaxHighlighter Evolved and hello to highlight.js. With this plugin, you can seamlessly transition from one to another.
+Say goodbye to plugins like SyntaxHighlighter Evolved and WP-Syntax (NEW!) and hello to [highlight.js](http://softwaremaniacs.org/soft/highlight/en/). With this plugin, you can seamlessly transition from one to another.
 
 == Description ==
 For years I've used [Alex Gorbatchev's SyntaxHighlighter](http://alexgorbatchev.com/SyntaxHighlighter/). It has served me well over the years. When I moved to WordPress I tried various plugins based on the library, such [SyntaxHighlighter Evolved](http://wordpress.org/extend/plugins/syntaxhighlighter/).
@@ -24,6 +24,11 @@ Great, but my existing source code examples use SyntaxHighlighter's style for co
 
 So there you have it. This WordPress plugin will go through and process your SyntaxHighlighter style blocks into ones that highlight.js works with out-of-the-box. It will also add the language that you have specified with the `brush` class and add it as a class on the `<code />` element ([following the HTML5 recommendation](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-code-element)). Nothing is changed in the DB, so if you decide to go back to SyntaxHighlighter, you can without any issues.
 
+## GeSHi
+This plugin now supports conversion of [GeSHi](http://qbnz.com/highlighter/) style code blocks! Now you can move from plugins such as [WP-Syntax](http://wordpress.org/extend/plugins/wp-syntax/) and [WP-GeSHi-Highlight](http://wordpress.org/extend/plugins/wp-geshi-highlight) to highlight.js.
+
+GeSHi uses the syntax that is *close* to SyntaxHighlighter, except instead of putting the language in the `class` attribute, it uses the `lang` attribute. Similar to the SyntaxHighligher conversion, it will go through and process your GeSHi style blocks into ones that highlight.js works with out-of-the-box. It will also add the language that you have specified with the `lang` attribute and add it as a `class` on the `<code />` element.
+
 == Installation ==
 
 Installation is standard and straight forward.
@@ -35,5 +40,15 @@ Installation is standard and straight forward.
 
 = 0.1.0 =
 * Initial release
+
 = 0.1.1 =
 * Modified output to use the HTML5 recommended syntax highlighting class names, e.g. `language-ruby`. For more information, see [the HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-code-element)
+
+= 0.1.2 =
+* Changed the regular expression to not eliminate HTML code within a code block, e.g.:
+
+    <pre class="brush: html;">
+      <pre />
+    </pre>
+
+* Added conversion of GeSHi style code blocks
