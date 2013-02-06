@@ -34,13 +34,9 @@ add_filter('the_content_rss',   'gbsh_covert_code_blocks');
 add_filter('get_the_excerpt',   'gbsh_covert_code_blocks');
 
 function gbsh_covert_code_blocks( $text ) {
-    $text = preg_replace_callback('%<pre class="["]*brush:\s?([^;]*);[^>]*>
-(^(?:(?!</pre>).)*$)
-</pre>%sim', 'gbsh_convert_code', $text);
+    $text = preg_replace_callback('%<pre class="["]*brush:\s?([^;]*);[^>]*>.+(^(?:(?!</pre>).)*$).+</pre>%sim', 'gbsh_convert_code', $text);
 
-    $text = preg_replace_callback('%<pre lang="([^"]*)"[^>]*>
-(^(?:(?!</pre>).)*$)
-</pre>%sim', 'gbsh_convert_code', $text);
+    $text = preg_replace_callback('%<pre lang="([^"]*)"[^>]*>.+(^(?:(?!</pre>).)*$).+</pre>%sim', 'gbsh_convert_code', $text);
 
     return $text;
 }
