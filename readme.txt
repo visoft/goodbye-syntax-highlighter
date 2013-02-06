@@ -45,10 +45,10 @@ Installation is standard and straight forward.
 * Modified output to use the HTML5 recommended syntax highlighting class names, e.g. `language-ruby`. For more information, see [the HTML5 spec](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-code-element)
 
 = 0.1.2 =
-* Changed the regular expression to not eliminate HTML code within a code block, e.g.:
+* Changed the regular expression to include HTML code within a `pre` block, e.g.:
 
     <pre class="brush: html;">
-      <pre />
+      <h1>Hello World</h1>
     </pre>
 
 * Added conversion of GeSHi style code blocks
