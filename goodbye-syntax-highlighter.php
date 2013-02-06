@@ -34,12 +34,24 @@ add_filter('the_content_rss',   'gbsh_covert_code_blocks');
 add_filter('get_the_excerpt',   'gbsh_covert_code_blocks');
 
 function gbsh_covert_code_blocks( $text ) {
-    $text = preg_replace( '|<pre class="[\"]*brush:\s?([^;]*);[^>]*>(.*)</pre>|se', 'gbsh_convert_code(\'$2\',\'$1\');', $text);
-    return preg_replace( '|<pre lang="([^"]*)"[^>]*>(.*)</pre>|se', 'gbsh_convert_code(\'$2\',\'$1\');', $text);
+    $text = preg_replace_callback('%<pre class="["]*brush:\s?([^;]*);[^>]*>
+(^(?:(?!</pre>).)*$)
+</pre>%sim', 'gbsh_convert_code', $text);
+
+    $text = preg_replace_callback('%<pre lang="([^"]*)"[^>]*>
+(^(?:(?!</pre>).)*$)
+</pre>%sim', 'gbsh_convert_code', $text);
+
+    return $text;
 }
 
-function gbsh_convert_code( $code, $language) {
-    $code = stripslashes( trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $code) ) );
+function gbsh_convert_code( $matches ) {
+    // You can vary the replacement text for each match on-the-fly
+    // $matches[0] holds the regex match
+    // $matches[n] holds the match for capturing group n
+    $code = stripslashes( trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $matches[2]) ) );
+    $language = $matches[1];
+
     // covert csharp into cs
     if ($language == 'csharp') $language = 'cs';
     return '<pre><code class="language-'. $language . '">' . $code . '</code></pre>';
