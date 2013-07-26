@@ -45,7 +45,7 @@ function gbsh_convert_code( $matches ) {
     // You can vary the replacement text for each match on-the-fly
     // $matches[0] holds the regex match
     // $matches[n] holds the match for capturing group n
-    $code = stripslashes( trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $matches[2]) ) );
+    $code = trim( str_replace(array('&amp;', '&#039;', '&quot;'), array('&','\'','"'), $matches[2]) );
     $language = $matches[1];
 
     // covert csharp into cs

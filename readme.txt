@@ -4,7 +4,7 @@ Donate link: http://www.visoftinc.com/
 Tags: highlight.js, syntax, code, pre, highlight, syntaxhighlighter, geshi
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,3 +46,6 @@ Installation is standard and straight forward.
 
 = 0.1.2 =
 * Added conversion of GeSHi style code blocks
+
+= 0.1.3 =
+* Bugfix: Removed `stripslashes` call when cleaning the code as this breaks TeX snippets (and probably others) [Issue 2](https://github.com/visoft/goodbye-syntax-highlighter/issues/2)
