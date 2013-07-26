@@ -3,7 +3,7 @@ Contributors: dwhitevisoft
 Donate link: http://www.visoftinc.com/
 Tags: highlight.js, syntax, code, pre, highlight, syntaxhighlighter, geshi
 Requires at least: 3.1
-Tested up to: 3.5
+Tested up to: 3.5.2
 Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
